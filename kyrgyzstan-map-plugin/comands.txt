@@ -1,0 +1,84 @@
+
+
+
+
+
+
+# Сначала выставляем display_name
+-each 'display_name=name'
+
+# Ставим level по admin_level
+-each 'level = admin_level=="4" ? "region" : (admin_level=="6" ? "district" : "")'
+
+
+# Для областей (admin_level=4) — одной командой
+-each 'code = admin_level=="4" && name=="Баткен облусу" ? "41705000000000" : admin_level=="4" && name=="Жалал-Абад облусу" ? "41703000000000" : admin_level=="4" && name=="Ысык-Көл облусу" ? "41702000000000" : admin_level=="4" && name=="Нарын облусу" ? "41704000000000" : admin_level=="4" && name=="Ош облусу" ? "41706000000000" : admin_level=="4" && name=="Талас облусу" ? "41707000000000" : admin_level=="4" && name=="Чүй облусу" ? "41708000000000" : admin_level=="4" && name=="Бишкек шаары" ? "41711000000000" : admin_level=="4" && name=="Ош шаары" ? "41721000000000" : ""'
+
+# Для районов (admin_level=6) — твои коды # ... и так далее весь список, что ты прислал
+-each 'if (admin_level=="6" && name=="Аламүдүн району") code="41708205000000"' \
+-each 'if (admin_level=="6" && name=="Жайыл району") code="41708217000000"' \
+-each 'if (admin_level=="6" && name=="Кемин району") code="41708224000000"' \
+-each 'if (admin_level=="6" && name=="Москва району") code="41708230000000"' \
+-each 'if (admin_level=="6" && name=="Панфилов району") code="41708232000000"' \
+-each 'if (admin_level=="6" && name=="Сокулук району") code="41708238000000"' \
+-each 'if (admin_level=="6" && name=="Чүй району") code="41708242000000"' \
+-each 'if (admin_level=="6" && name=="Ысык-Ата району") code="41708248000000"' \
+-each 'if (admin_level=="6" && name=="Кадамжай району") code="41705210000000"' \
+-each 'if (admin_level=="6" && name=="Лейлек району") code="41705220000000"' \
+-each 'if (admin_level=="6" && name=="Баткен району") code="41705214000000"' \
+-each 'if (admin_level=="6" && name=="Сүлүктү шаары") code="41705280000000"' \
+-each 'if (admin_level=="6" && name=="Чоң-Алай району") code="41706230000000"' \
+-each 'if (admin_level=="6" && name=="Токмок шаары") code="41708280000000"' \
+-each 'if (admin_level=="6" && name=="Баткен") code="41705000000000"' \
+-each 'if (admin_level=="6" && name=="Сузак району") code="41703254000000"' \
+-each 'if (admin_level=="6" && name=="Көк-Жаңгак шаары") code="41703280000000"' \
+-each 'if (admin_level=="6" && name=="Майлуу-Суу шаары") code="41703270000000"' \
+-each 'if (admin_level=="6" && name=="Тогуз-торо району") code="41703322000000"' \
+-each 'if (admin_level=="6" && name=="Базар-Коргон району") code="41703210000000"' \
+-each 'if (admin_level=="6" && name=="Ноокен району") code="41703302000000"' \
+-each 'if (admin_level=="6" && name=="Таш-Көмүр шаары") code="41703260000000"' \
+-each 'if (admin_level=="6" && name=="Аксы району") code="41703100000000"' \
+-each 'if (admin_level=="6" && name=="Токтогул району") code="41703312000000"' \
+-each 'if (admin_level=="6" && name=="Кара-Көл шаары") code="41703250000000"' \
+-each 'if (admin_level=="6" && name=="Ала-Бука району") code="41703120000000"' \
+-each 'if (admin_level=="6" && name=="Чаткал району") code="41703330000000"' \
+-each 'if (admin_level=="6" && name=="Кызыл-Кыя шаары") code="41705270000000"' \
+-each 'if (admin_level=="6" && name=="Ноокат району") code="41706210000000"' \
+-each 'if (admin_level=="6" && name=="Араван району") code="41706100000000"' \
+-each 'if (admin_level=="6" && name=="Кара-Суу району") code="41706200000000"' \
+-each 'if (admin_level=="6" && name=="Өзгөн району") code="41706220000000"' \
+-each 'if (admin_level=="6" && name=="Кара-Кулжа району") code="41706120000000"' \
+-each 'if (admin_level=="6" && name=="Алай району") code="41706000000000"' \
+-each 'if (admin_level=="6" && name=="Талас шаары") code="41707280000000"' \
+-each 'if (admin_level=="6" && name=="Талас району") code="41707220000000"' \
+-each 'if (admin_level=="6" && name=="Бакай-Ата району") code="41707100000000"' \
+-each 'if (admin_level=="6" && name=="Кара-Буура району") code="41707120000000"' \
+-each 'if (admin_level=="6" && name=="Манас району") code="41707140000000"' \
+-each 'if (admin_level=="6" && name=="Жумгал району") code="41704220000000"' \
+-each 'if (admin_level=="6" && name=="Кочкор району") code="41704240000000"' \
+-each 'if (admin_level=="6" && name=="Ак-Талаа району") code="41704100000000"' \
+-each 'if (admin_level=="6" && name=="Нарын шаары") code="41704280000000"' \
+-each 'if (admin_level=="6" && name=="Нарын району") code="41704260000000"' \
+-each 'if (admin_level=="6" && name=="Ат-Башы району") code="41704120000000"' \
+-each 'if (admin_level=="6" && name=="Каракол шаары") code="41702280000000"' \
+-each 'if (admin_level=="6" && name=="Балыкчы") code="41702260000000"' \
+-each 'if (admin_level=="6" && name=="Тоң району") code="41702220000000"' \
+-each 'if (admin_level=="6" && name=="Ысык-Көл району") code="41702240000000"' \
+-each 'if (admin_level=="6" && name=="Түп району") code="41702250000000"' \
+-each 'if (admin_level=="6" && name=="Ак-Суу району") code="41702100000000"' \
+-each 'if (admin_level=="6" && name=="Жети-Өгүз району") code="41702120000000"' \
+-each 'if (admin_level=="6" && name=="Биринчи май району") code="41711201000000"' \
+-each 'if (admin_level=="6" && name=="Ленин району") code="41711202000000"' \
+-each 'if (admin_level=="6" && name=="Октябрь району") code="41711203000000"' \
+-each 'if (admin_level=="6" && name=="Свердлов району") code="41711204000000"'
+
+# Формируем id
+-each 'id = level + "-" + code'
+
+# Бишкек флаг
+-each 'data_bishkek = display_name.match(/Бишкек/i) ? "true" : "false"'
+
+-each 'meta="display_name="+display_name+";level="+level+";code="+code+";id="+id+";data_bishkek="+data_bishkek+";name="+name+";admin_level="+admin_level'
+
+Конец
+-each 'this.properties = { "ISO3166-2": this.properties["ISO3166-2"], name: this.properties.name, admin_level: this.properties.admin_level, display_name: this.properties.display_name, code: this.properties.code, level: this.properties.level, data_bishkek: this.properties.data_bishkek, id: this.properties.id}'

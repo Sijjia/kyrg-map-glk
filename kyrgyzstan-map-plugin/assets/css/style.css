@@ -1,0 +1,221 @@
+/* Фон карты */
+#map {
+    background-color: white;
+}
+
+/* базовые цвета и pointer-events для путей */
+.kmap-svg path {
+    pointer-events: all;
+    transition: fill .12s ease-in-out;
+}
+
+/* Бишкек как область — синий #1e3a8a; остальные регионы — #022068 */
+.kmap-svg path[data-level="region"][data-bishkek="true"] {
+    fill: #1e3a8a;
+}
+
+.kmap-svg path[data-level="region"]:not([data-bishkek="true"]) {
+    fill: #022068;
+}
+
+/* метки (лейблы) */
+.kmap-label {
+    pointer-events: none;
+}
+
+.kmap-label__inner {
+    background: rgba(2, 32, 104, .85);
+    color: #fff;
+    padding: 2px 6px;
+    border-radius: 6px;
+    font-size: 12px;
+    line-height: 1.1;
+    white-space: nowrap;
+    user-select: none;
+}
+
+/* заголовок над маркером */
+.leaflet-tooltip.kmap-title {
+    background: #022068;
+    color: #222fff;
+    border: none;
+    border-radius: 8px;
+    padding: 4px 8px;
+    font-weight: 600;
+}
+
+/* Стили для панели статистики */
+#stats {
+    background-color: #000;
+    color: #222;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#stats-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #222;
+}
+
+/* Сетка статистики */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.industry-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.industry-card:hover {
+    background: rgba(255, 255, 255, 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+}
+
+.industry-title {
+    font-weight: 600;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    color: #222;
+    font-size: 1.1rem;
+}
+
+.stats-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    align-items: center;
+}
+
+.stat-label {
+    font-size: 14px;
+    color: #222;
+}
+
+.stat-value {
+    font-weight: 600;
+    color: #222;
+}
+
+.no-data {
+    text-align: center;
+    padding: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Стили для списка айыл аймаков */
+.ayyl-list-container {
+    margin-top: 25px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.ayyl-list-title {
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #222;
+    font-size: 1.1rem;
+}
+
+.ayyl-scroll-container {
+    max-height: 200px;
+    overflow-y: auto;
+    padding-right: 5px;
+}
+
+.ayyl-scroll-container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.ayyl-scroll-container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.ayyl-scroll-container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 3px;
+}
+
+.ayyl-scroll-container::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.ayyl-item {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ayyl-item:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.ayyl-item.active {
+    background: rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+}
+
+.ayyl-name {
+    flex-grow: 1;
+    color: #222;
+}
+
+.ayyl-stats-badge {
+    font-size: 12px;
+    opacity: 0.7;
+    color: #222;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    #stats {
+        padding: 15px;
+    }
+    
+    .industry-card {
+        padding: 12px;
+    }
+    
+    .ayyl-item {
+        padding: 10px 12px;
+    }
+}
+
+/* Общие улучшения читаемости */
+#stats-content {
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.stat-value {
+    color: #222;
+    font-weight: 700;
+}
+
+.stat-label {
+    color: #222;
+}

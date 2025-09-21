@@ -29,8 +29,21 @@ function kmap_enqueue_assets() {
     wp_enqueue_style('kmap-css', KMAP_URL . 'assets/css/style.css', [], '1.2');
     wp_localize_script('kmap-js', 'kmapData', [
         'ajaxurl' => admin_url('admin-ajax.php'),
-        'mapUrl' => KMAP_URL . 'assets/svg/kyrgyzstan.svg'
+        // стартовая карта с ОБЛАСТЯМИ
+            'adm1Url' => KMAP_URL . 'assets/svg/adm1_oblast.svg',
+        // соответствие: имя области (ровно как в display_name в adm1_oblast.svg) -> файл с её районами
+        'adm2Map' => [
+            'Чүй облусу'         => KMAP_URL . 'assets/svg/adm2/adm2_chuy.svg',
+            'Талас облусу'       => KMAP_URL . 'assets/svg/adm2/adm2_talas.svg',
+            'Ош облусу'          => KMAP_URL . 'assets/svg/adm2/adm2_osh.svg',
+            'Баткен облусу'      => KMAP_URL . 'assets/svg/adm2/adm2_batken.svg',
+            'Жалал-Абад облусу'  => KMAP_URL . 'assets/svg/adm2/adm2_jalal_abad.svg',
+            'Нарын облусу'       => KMAP_URL . 'assets/svg/adm2/adm2_naryn.svg',
+            'Ысык-Көл облусу'    => KMAP_URL . 'assets/svg/adm2/adm2_ysyk_kol.svg',
+            'Бишкек'             => KMAP_URL . 'assets/svg/adm2/adm2_bishkek.svg',
+        ],
     ]);
+
 }
 add_action('wp_enqueue_scripts', 'kmap_enqueue_assets');
 

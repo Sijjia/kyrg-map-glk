@@ -34,6 +34,31 @@
     user-select: none;
 }
 
+/* Кнопка назад поверх всего */
+#kmap-back { z-index: 1000; }
+
+.kmap-label .leaflet-tooltip {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+  text-shadow:
+    -1px -1px 0 #022068,
+     1px -1px 0 #022068,
+    -1px  1px 0 #022068,
+     1px  1px 0 #022068; /* halo */
+}
+
+.industry-card {
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+
+/* Выбранный район — фиксируем класс (на случай ховера) */
+.kmap-district-active { fill: #CA9E67 !important; }
+
 /* заголовок над маркером */
 .leaflet-tooltip.kmap-title {
     background: #022068;
